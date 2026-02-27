@@ -26,7 +26,7 @@ def calculate():
     if result >= 0:
         print(f"Your monthly profits are {result} gold")
     else:
-        print(f"Your monthly expenses are {abs(result)} gold")
+        print(f"Your monthly expenses are (-{abs(result)}) gold")
 
 
 if __name__ == "__main__":
