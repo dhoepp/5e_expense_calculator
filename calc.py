@@ -6,22 +6,22 @@ def calculate():
 
     for project in range(n):
         projectSuccess = 0
-        for skill in range(3):
-            roll = int(input(f"ability score {project}.{skill}? "))
+        for skill in range(3): # Each project has 3 ability checks
+            roll = int(input(f"ability score {project + 1}.{skill + 1}? ")) # Appends the project and skill check for each iteration
             projectSuccess += roll
         projectAvg = projectSuccess / 3
         modifier += projectAvg
 
     d100 = int(input("d100 roll? "))
 
-    baseline_input = input("baseline? (default 350) ")
-    if baseline_input:
+    baseline_input = input("baseline? (default 350) ") 
+    if baseline_input: # Only overwrites the value if a number is entered, skips if you just hit enter
         baseline = int(baseline_input)
 
-    multiplier = (d100 + modifier - 50) / 33
+    multiplier = (d100 + modifier - 50) / 33 
 
     result = baseline * multiplier
-    result = round(result /25) * 25
+    result = round(result /25) * 25 # Round to the nearest 25
 
     if result >= 0:
         print(f"Your monthly profits are {result} gold")
