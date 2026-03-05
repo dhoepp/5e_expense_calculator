@@ -46,3 +46,35 @@ jobs:
         with:
           name: 5e_acqInc_calc_linux
           path: dist/calc
+
+  release:
+    needs: [build-windows, build-mac, build-linux]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: 5e_acqInc_calc_win
+          path: artifacts/win
+      - uses: actions/download-artifact@v4
+        with:
+          name: 5e_acqInc_calc_macOS
+          path: artifacts/mac
+      - uses: actions/download-artifact@v4
+        with:
+          name: 5e_acqInc_calc_linux
+          path: artifacts/linux
+      - name: Rename artifacts
+        run: |
+          mv artifacts/win/calc.exe artifacts/5e_acqInc_calc_win.exe
+          mv artifacts/mac/calc artifacts/5e_acqInc_calc_macOS
+          mv artifacts/linux/calc artifacts/5e_acqInc_calc_linux
+      - uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.0
+          name: v1.0
+          files: |
+            artifacts/5e_acqInc_calc_win.exe
+            artifacts/5e_acqInc_calc_macOS
+            artifacts/5e_acqInc_calc_linux
