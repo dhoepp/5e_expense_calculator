@@ -13,6 +13,7 @@ def calculate():
 
     for project in range(n):
         projectSuccess = 0
+        print("\n")
         for skill in range(3): # Each project has 3 ability checks
             roll_input = ""
             contest = random.randint(1, 10) + random.randint(1, 10) + 4
@@ -34,8 +35,6 @@ def calculate():
         if projectSuccess >= 1:
             if verbose:
                 print(f"{projectSuccess} successes = 1d{6 + (projectSuccess * 2)}")
-        else:
-            break
 
         if projectSuccess == 1:
             while True:
@@ -65,12 +64,12 @@ def calculate():
         print(f"modifier = {modifier}")
 
     while True:
-        d100 = int(input("d100 roll? "))
+        d100 = int(input("\nd100 roll? "))
         if 1 <= d100 <= 100: # Valid d100 range
             break
         print("Roll must be between 1 and 100") # Rejects anything out of range
 
-    baseline_input = input("baseline? (default 350) ") 
+    baseline_input = input("\nbaseline? (default 350) ") 
     if baseline_input: # Only overwrites the value if a number is entered, skips if you just hit enter
         baseline = int(baseline_input)
 
@@ -89,9 +88,9 @@ def calculate():
     result = round(result /25) * 25 # Round to the nearest 25
 
     if result >= 0:
-        print(f"Your monthly profits are {result} gold")
+        print(f"\nYour monthly profits are {result} gold")
     else:
-        print(f"Your monthly expenses are ({result}) gold")
+        print(f"\nYour monthly expenses are ({result}) gold")
 
     input("\nPress enter to exit...")
 
