@@ -93,6 +93,8 @@ def calculate():
     else:
         print(f"Your monthly expenses are ({result}) gold")
 
+    input("\nPress enter to exit...")
+
 
 if __name__ == "__main__":
     if help:
