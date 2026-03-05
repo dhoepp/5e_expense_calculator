@@ -2,6 +2,7 @@ import random
 import sys
 
 verbose = "-v" in sys.argv or "--verbose" in sys.argv
+help = "-h" in sys.argv or "--help" in sys.argv
 
 
 def calculate():
@@ -94,4 +95,7 @@ def calculate():
 
 
 if __name__ == "__main__":
-    calculate()
+    if help:
+        print("5e expense calculator for Acq Inc. Use --verbose or -v for debugging output.")
+    else:
+        calculate()
