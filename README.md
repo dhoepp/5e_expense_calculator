@@ -13,6 +13,8 @@ Optional flags:
 - `-v` or `--verbose` — shows intermediate values for debugging
 - `-h` or `--help` — prints a short description
 
+![demo](demo.png)
+
 ## How to use
 
 For each side project, you'll run 3 ability checks:
